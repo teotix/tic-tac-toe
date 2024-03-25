@@ -80,7 +80,11 @@ const gameBoard = (function () {
       p2Score.textContent = playerTwo.getScore();
       counter = 0;
     }
-    if (Array.from(tiles).every((elem) => elem.textContent.trim() !== "")) {
+    if (
+      Array.from(tiles).every((elem) => elem.textContent.trim() !== "") &&
+      !checkWinner(playerOne) &&
+      !checkWinner(playerTwo)
+    ) {
       gameFinished = true;
       winner.textContent = "You have tied the game!";
     }
